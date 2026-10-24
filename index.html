@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lumora | Free Thoughtful AI Assistant by ASHWIN</title>
+<meta name="description" content="Lumora is a free, thoughtful AI assistant created by ASHWIN for reasoning, writing, learning, images and creative work.">
+<meta name="author" content="ASHWIN">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#eef7f2">
+<link rel="canonical" href="https://www.your-domain.com/">
+<meta property="og:title" content="Lumora | Thoughtful AI Assistant">
+<meta property="og:description" content="Think clearly. Create boldly. Created by ASHWIN.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.your-domain.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%236fd3bd'>&#10022;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Lumora",
+  "description": "Free thoughtful AI assistant created by ASHWIN",
+  "author": { "@type": "Person", "name": "ASHWIN" },
+  "url": "https://www.your-domain.com/"
+}
+</script>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<div id="splash" aria-hidden="true">
+  <div class="intro">
+    <div id="splashMark" class="mark"></div>
+    <h1 class="word">Lumora</h1>
+    <p class="tag">Think clearly. Create boldly.</p>
+  </div>
+</div>
+
+<div id="gate" class="gate" hidden>
+  <form class="card" id="nameForm" autocomplete="off">
+    <div id="gateLogo" aria-hidden="true"></div>
+    <h2>Before we begin, what should I call you?</h2>
+    <label class="sr" for="nameInput">Your name</label>
+    <input id="nameInput" name="name" maxlength="40" placeholder="Your name" required>
+    <button class="btn primary" type="submit">Continue</button>
+  </form>
+</div>
+
+<div id="app" class="collapsed" hidden>
+  <aside id="sidebar" class="sidebar" aria-label="Conversations">
+    <button class="btn wide" id="newChat" type="button">+ New chat</button>
+    <ul id="convList" class="conv-list"></ul>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="btn icon" id="toggleSidebar" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Show or hide conversations">&#9776;</button>
+      <div class="brand">
+        <span id="headLogo" aria-hidden="true"></span>
+        <span class="wordmark">Lumora</span>
+      </div>
+      <nav class="actions">
+        <button class="btn" id="openSettings" type="button">Settings</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <section class="hero" aria-labelledby="greet">
+        <h1 id="greet">Hello</h1>
+        <p>Ask anything. I will think it through with you.</p>
+      </section>
+
+      <section id="messages" class="messages" aria-live="polite" aria-label="Conversation"></section>
+
+      <div id="attachments" class="attachments" hidden></div>
+
+      <form id="composer" class="composer">
+        <input id="fileInput" type="file" multiple hidden accept="image/*,.txt,.md,.markdown,.csv,.tsv,.json,.js,.mjs,.ts,.py,.html,.css,.xml,.yml,.yaml,.log,.sql,.java,.c,.cpp,.cs,.go,.rs,.rb,.php,.sh">
+        <button class="icon-btn" id="attachBtn" type="button" aria-label="Attach an image or text file">+</button>
+        <label class="sr" for="input">Message Lumora</label>
+        <textarea id="input" rows="1" maxlength="8000" placeholder="Ask Lumora anything..."></textarea>
+        <button class="icon-btn" id="micBtn" type="button" aria-label="Speak your message" aria-pressed="false">&#9679;</button>
+        <button class="send" id="sendBtn" type="submit" aria-label="Send message">&#10148;</button>
+        <button class="send stop" id="stopBtn" type="button" aria-label="Stop generating" hidden>&#9632;</button>
+      </form>
+      <p class="hint">Enter to send &middot; Shift+Enter for a new line &middot; Ctrl/Cmd+K for a new chat</p>
+    </main>
+
+    <footer class="foot">Lumora &middot; Created by <strong>ASHWIN</strong></footer>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<dialog id="settings" aria-labelledby="settingsTitle">
+  <form method="dialog" class="dlg-head">
+    <h2 id="settingsTitle">Settings</h2>
+    <button class="btn icon" value="close" aria-label="Close settings">&times;</button>
+  </form>
+
+  <section class="dlg-section">
+    <h3>Profile and replies</h3>
+    <label class="field">Your name
+      <input id="nameEdit" maxlength="40" autocomplete="given-name">
+    </label>
+    <label class="field">Response length
+      <select id="prefLength">
+        <option value="short">Short</option>
+        <option value="medium">Balanced</option>
+        <option value="detailed">Detailed</option>
+      </select>
+    </label>
+    <label class="field">Explanation level
+      <select id="prefLevel">
+        <option value="beginner">Beginner-friendly</option>
+        <option value="standard">Standard</option>
+        <option value="expert">Expert</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="prefMemory"> Use my saved memories in replies</label>
+    <label class="check"><input type="checkbox" id="prefSpeak"> Read replies aloud automatically</label>
+  </section>
+
+  <section class="dlg-section">
+    <h3>Memory</h3>
+    <p class="muted">Lumora only remembers what you add here. Edit or delete any item at any time.</p>
+    <form id="memForm" class="row">
+      <label class="sr" for="memInput">New memory</label>
+      <input id="memInput" maxlength="300" placeholder="For example: I am learning Spanish">
+      <button class="btn primary small" type="submit">Add</button>
+    </form>
+    <ul id="memList" class="mem-list"></ul>
+  </section>
+
+  <section class="dlg-section">
+    <h3>Your data</h3>
+    <p class="muted">Conversations and memories are stored only in this browser. Nothing is kept on our servers.</p>
+    <div class="row wrap">
+      <button id="exportData" class="btn" type="button">Export all data</button>
+      <button id="exportChat" class="btn" type="button">Export this chat</button>
+      <button id="wipeData" class="btn danger" type="button">Delete all my data</button>
+    </div>
+  </section>
+</dialog>
+
+<script src="/app.js" type="module"></script>
+</body>
+</html>

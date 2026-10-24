@@ -1,0 +1,17 @@
+{
+  "name": "lumora",
+  "version": "2.0.0",
+  "description": "Lumora - a thoughtful AI assistant website created by ASHWIN",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
